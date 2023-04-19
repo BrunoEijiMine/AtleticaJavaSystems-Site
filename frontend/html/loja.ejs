@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<link rel="stylesheet" href="/css/navbar.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+		/>
+		<link rel="icon" href="/img/logo-atletica-full-resolu.png" type="image/png" />
+		<!-- Biblioteca de efeitos "data-aos"-->
+		<link rel="stylesheet" href="/css/aos.css" />
+		<!--=============== REMIXICONS - FONTE DE ÍCONES ===============-->
+		<link
+			href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+			rel="stylesheet"
+		/>
+		<!-- // -->
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+
+		<!-- sweetalert2 - PINGUINZIP -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+		<title>Atletica JavaSystems - UNIFEB</title>
+	</head>
+	<body>
+		<!-- Grecao esteve aki-->
+		<header class="header" id="home">
+			<nav class="nav container">
+				<a href="/" class="nav__logo"
+					><img src="/img/logo-escrita.png" style="height: 3rem" alt=""
+				/></a>
+
+				<div class="nav__menu" id="nav-menu">
+					<ul class="nav__list">
+						<li class="nav__item nav-item">
+							<a href="/" class="nav__link">Voltar ao Início</a>
+						</li>
+					</ul>
+
+					<i class="ri-close-line nav__close" id="nav-close"></i>
+				</div>
+
+				<div class="nav__toggle" id="nav-toggle">
+					<i class="ri-function-line"></i>
+				</div>
+			</nav>
+		</header>
+		<!-- FIM HEADER -->
+
+		<!-- MEIO -->
+
+		<main style="margin-top: 100px; margin-bottom: 100px">
+			<section class="containerProdutos" data-aos="fade" data-aos-duration="1500">
+				<!-- <div name="PRODUTO-DISPONIVEL" class="card m-4 p-0 col-md-3
+                borda-cor-especial" style="width: 18rem;"> <div class="zoom"> <img
+                src="/img/camisa-atletica.png" class="card-img-top" alt="..."> </div> <div
+                class="card-body"> <h5 class="card-title">Camiseta JavaSystems</h5> <p
+                class="card-text">R$50,00</p> <a class="botaoProdutos botao-cor-especial"
+                data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="comprar()"
+                id="btnComprar">Encomendar produto</a> </div> </div> -->
+
+				<!-- <div name="EM-BREVE" class="card m-4 p-0 col-md-3 borda-cor-especial"
+                style="width: 18rem;"> <div class="zoom"> <img src="/img/novidades-breve.png"
+                class="card-img-top" alt="..."> </div> <div class="card-body"> <h5
+                class="card-title">Em Breve</h5> <p class="card-text">..</p> <a
+                class="botaoProdutos botao-cor-especial" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">Encomendar produto</a> </div> </div> -->
+
+				<% produtos.forEach(async function (produto){ %>
+				<div
+					name="PRODUTO-DISPONIVEL"
+					class="card m-4 p-0 col-md-3 borda-cor-especial"
+					style="width: 18rem"
+				>
+					<div class="zoom">
+						<img
+							src="/img/<%= produto.img%>"
+							class="card-img-top"
+							alt="<%= produto.nome %>"
+							style="height: 286px; width: 286px"
+						/>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title"><%= produto.nome %></h5>
+						<p class="card-text">R$<%= produto.valor %>,00</p>
+						<a
+							class="botaoProdutos botao-cor-especial"
+							onclick="comprar(
+                                '<%= produto.idproduto %>',
+                                '<%= produto.tipo %>',
+                                '<%= produto.nome %>',
+                                '<%= produto.valor %>',
+                                '<%= produto.descricao %>')"
+							id="<%= produto.idproduto %>"
+							>Encomendar produto</a
+						>
+					</div>
+				</div>
+				<% }); %>
+			</section>
+
+			<div class="invisible" style="width: 0px; height: 0px" id="invisibleForm">
+				<form action="/compra-v1" method="POST" autocomplete="off" id="frmCompraROUPA">
+					<div class="row g-3 mb-3">
+						<div class="col">
+							<input
+								type="text"
+								class="form-control"
+								placeholder="Nome Completo"
+								aria-label="Nome"
+								id="nome"
+								name="nome"
+								required
+							/>
+						</div>
+						<div class="col">
+							<input
+								type="email"
+								class="form-control"
+								placeholder="Email"
+								aria-label="Email"
+								id="email"
+								name="email"
+								required
+							/>
+						</div>
+					</div>
+
+					<div class="row g-3 mb-3">
+						<div class="col">
+							<input
+								type="tel"
+								class="form-control"
+								placeholder="Telefone"
+								aria-label="Telefone"
+								id="celular"
+								name="celular"
+								required
+							/>
+						</div>
+						<div class="col">
+							<select class="form-select" id="qtd" name="qtd" required>
+								<option disabled="disabled" selected="selected">Quantidade</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row g-3 mb-3">
+						<div class="col">
+							<select
+								class="form-select"
+								id="tamanho"
+								name="tamanho"
+								required="required"
+							>
+								<option selected="selected" disabled="disabled" required name="tamanho" id="tamanho">Tamanho</option>
+								<option value="P">P</option>
+								<option value="M">M</option>
+								<option value="G">G</option>
+								<option value="GG">GG</option>
+							</select>
+						</div>
+						<h4 id="valorUnit">VALOR UNITÁRIO: </h4>
+						<br>
+						<img
+							src="/img/tamanho-camiseta.jpg"
+							class="rounded mx-auto d-block"
+							alt="Tamanho Imagem"
+						/>
+					</div>
+
+					<div>
+						<input
+							type="text"
+							class="form-control invisible"
+							placeholder="ID PRODUTO"
+							id="idProduto"
+							name="idProduto"
+							style="height: 0px;"
+						/>
+						<input
+							type="text"
+							class="form-control invisible"
+							placeholder="TIPO PRODUTO"
+							id="tipoProduto"
+							name="tipoProduto"
+							style="height: 0px;"
+						/>
+					</div>
+					<button type="submit" class="btn btn-warning" id="finalizar">Fazer Pedido</button>
+				</form>
+			</div>
+		</main>
+		<!-- MEIO FIM -->
+
+		<script>
+			async function comprar(id, tipo, nome, valor, descricao) {
+				document.getElementById("qtd").addEventListener("change", async function() {
+					let e = await document.getElementById("qtd");
+					let value = await e.value;
+					let qtd = await e.options[e.selectedIndex].text;
+					const valorTotal = await (valor*qtd);
+					document.getElementById("valorUnit").innerText = 'VALOR TOTAL | R$ '+String(valorTotal).replace('.', ',');
+				});
+				const formCompra = await document.getElementById("frmCompra"+tipo);
+				document.getElementById("valorUnit").innerHTML = `VALOR TOTAL | R$ ${String(valor).replace('.', ',')}`;
+				document.getElementById("idProduto").value = id;
+				document.getElementById("tipoProduto").value = tipo;
+
+				await Swal.fire({
+					title: `<strong>${nome}</strong>`,
+					html: await formCompra,
+					showCloseButton: true,
+					showConfirmButton: false,
+					focusConfirm: false,
+					showCancelButton: false,
+					cancelButtonText: "Cancelar",
+				}).then(async (result) => {
+					await document.getElementById("invisibleForm").appendChild(formCompra);
+				}).catch((err) => {
+				});
+			}
+		</script>
+
+		<script>
+			window.addEventListener("load", async (event) => {
+				const aviso = await '<%= aviso %>';
+
+				if(aviso.length > 1 && aviso == 'Sucesso')
+				{
+					await Swal.fire(
+						'Encomenda Realizada com Sucesso!',
+						'',
+						'success'
+					);
+				}
+				else if (aviso.length > 1 && aviso == 'Erro') {
+					await Swal.fire(
+						'Ocorreu um erro! Entre em contato com a diretoria.',
+						'',
+						'error'
+					);
+				}
+			});
+		</script>
+
+		<!-- COMEÇO FOOTER -->
+		<footer data-aos="slide-up" id="contato">
+			<div class="text-center text-lg-start text-muted footer-edit">
+				<section
+					class="d-flex justify-content-center justify-content-lg-between"
+				></section>
+				<!-- Section: Links -->
+				<section>
+					<div class="container text-center text-md-start mt-5">
+						<!-- Grid row -->
+						<div class="row mt-3">
+							<!-- Grid column -->
+							<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+								<!-- Content -->
+								<img
+									src="/img/logo-escrita.png"
+									alt="Logo da Atlética escrita footer"
+									width="100"
+									height="30"
+									style="margin-bottom: 20px"
+								/>
+								<p style="color: #000">
+									Somos a Atlética JavaSystems - Unifeb Barretos - SP
+								</p>
+							</div>
+							<!-- Grid column -->
+							<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+								<!-- Links -->
+								<h6 class="text-uppercase fw-bold mb-4 texto-footer">Links Úteis</h6>
+								<p>
+									<a href="#inicio" class="texto-footer">Inicio</a>
+								</p>
+
+								<p>
+									<a href="#quemsomos" class="texto-footer">Quem somos</a>
+								</p>
+							</div>
+							<!-- Grid column -->
+
+							<!-- Grid column -->
+							<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+								<!-- Links -->
+								<h6 class="text-uppercase fw-bold mb-4 texto-footer">Contato</h6>
+								<p class="texto-footer">Brasil, Barretos, SP</p>
+								<p class="texto-footer">javasystems.atletica@hotmail.com</p>
+								<a
+									href="https://www.instagram.com/atleticasistemas.unifeb/"
+									target="_bank"
+								>
+									<i class="bi bi-instagram icone_instagram"></i>
+								</a>
+							</div>
+							<!-- Grid column -->
+						</div>
+						<!-- Grid row -->
+					</div>
+				</section>
+				<!-- Section: Links -->
+
+				<!-- Copyright -->
+				<div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05)">
+					© Direitos autorais
+					<a class="text-reset fw-bold fonte-titulo">JavaSystems</a>
+				</div>
+				<!-- Copyright -->
+			</div>
+		</footer>
+		<!-------------------------------------------------------------FIM
+                Footer----------------------------------------------------------- -->
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+			crossorigin="anonymous"
+		></script>
+		<script src="/js/main.js"></script>
+		<script src="/js/aos.js"></script>
+
+		<script>
+			AOS.init();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/login.css">
+    <title>Entrar - JavaSystems</title>
+</head>
+
+<body class="text-center">
+    
+    <main class="form-signin w-100 m-auto">
+        
+      <% if(error != null || error != undefined){ %>
+        <div class="alert alert-warning" id="aviso" role="alert">
+          <%= error %>
+        </div>
+      <%}%>
+
+        <!-- <form method="POST">
+        <img class="logo__login" src="/img/logo-atletica-full-resolu.png" alt="Logo Atletica">
+        <h1 class="h3 titulo__login">Conectar - se</h1>
+        <div class="form-floating">
+          <input type="email" class="form-control" id="email" name="email" placeholder="nome@exemplo.com">
+          <label for="floatingInput">E-mail</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="password" name="password" placeholder="Senha">
+          <label for="floatingPassword">Senha</label>
+        </div>
+        <div class="checkbox mb-3">
+            <input type="checkbox" value="rememberme">
+            Lembrar de mim
+        </div>
+        <button class="w-100 btn botao__login" id="loginBtn" type="submit">Entrar</button>
+        <a href="#" class="esqueci__login">Esqueci minha senha</a>
+      </form> -->
+
+      <p class="mt-5 mb-3 text-muted">&copy; Atlética JavaSystems</p>
+    </main>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+/*=============== VARIAVEIS CSS (GRECAO) ===============*/
+:root {
+    /* Aki é o tamanho do header q eu defini automático */
+    --header-height: 3rem;
+    --hue-color: 235;
+  
+    /*========== z index que prefire definir na varíavel ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+  }
+
+body{
+    background-color: #000 !important;
+}
+
+/* INICIO PAGINA */
+.hero{
+    width: 100%;
+    height: 100vh;
+    background-image: url(/img/background1.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo{
+    width: 100px;
+    cursor: pointer;
+}
+
+.navbar{
+    width: 85%;
+    height: 15%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button{
+    color: #fbfcfd;
+    padding: 10px 25px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+.content{
+    color: #fbfcfd;
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+h1{
+    font-size: 80px;
+    margin: 10px 0 30px;
+    line-height: 80px;
+}
+
+.side-bar{
+    width: 50px;
+    height: 100vh;
+    /* background-image: linear-gradient(#00545d, #000729); */
+    background-color: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.menu{
+    display: block;
+    width: 25px;
+    margin: 40px auto 0;
+    cursor: pointer;
+}
+
+.social-links img, .useful-links img{
+    width: 25px;
+    margin: 5px auto;
+    cursor: pointer;
+}
+
+.social-links{
+    width: 50px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.useful-links{
+    width: 50px;
+    text-align: center;
+    position: absolute;
+    bottom: 30px;
+}
+
+.effectBinary img{
+    width: 50px;
+    animation: bubble 7s linear infinite;
+}
+
+.effectBinary{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: -70px;
+}
+@keyframes bubble{
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50%{
+
+        opacity: 1;
+    }
+    70%{
+
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-80vh);
+        opacity: 0;
+    }
+}
+
+.effectBinary img:nth-child(1){
+    animation-delay: 2s;
+    width: 25px;
+}
+.effectBinary img:nth-child(2){
+    animation-delay: 1s;
+}
+.effectBinary img:nth-child(3){
+    animation-delay: 3s;
+    width: 25px;
+}
+.effectBinary img:nth-child(4){
+    animation-delay: 4.5s;
+}
+.effectBinary img:nth-child(5){
+    animation-delay: 3s;
+}
+.effectBinary img:nth-child(6){
+    animation-delay: 6s;
+    width: 20px;
+}
+.effectBinary img:nth-child(7){
+    animation-delay: 7s;
+    width: 35px;
+}
+
+/* PAGINA INICIO FIMMMMM */
+
+
+
+/* INICIO PRODUTO */
+.tituloLojinha{
+    text-align: center;
+    color: #FAB916;
+    font-weight: bold;
+    font-size: 2.5rem;
+    font-family: 'Acme', sans-serif;
+    margin-top: 15%;
+}
+
+.card-text{
+    font-weight: bold !important;
+}
+
+.botaoProdutos{
+    box-shadow: 0px 10px 14px -7px #141414;
+    background-color: #599bb3;
+    border-radius: 8px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 9px 20px;
+    text-decoration: none;
+}
+
+.containerProdutos{
+    width: 1020px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.titulo-color_produtos{
+    color: #fff;
+    text-align: center;
+}
+
+.botao-cor-especial{
+    background-color: #FAB916;
+    color: #fff;
+}
+
+.botao-cor-especial:hover{
+    color:  #fff;
+    background-color: #FA9600;
+    transition: 1.5s;
+}
+
+.borda-cor-especial{
+    border-color: #FAB916 !important;
+}
+
+.card{
+    background-color: transparent;
+}
+
+.card-posicao-imagem{
+    object-fit: cover;
+}
+
+.card-largura{
+    max-width: 18rem;
+}
+
+.zoom{
+    overflow: hidden;
+}
+
+.zoom img{
+    max-width: 100%;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.zoom:hover img{
+    -moz-transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+}
+
+.card-edit{
+    background-color: #181818;
+}
+
+.card-titulo-edit{
+    color: #fff;
+}
+
+.card-text-edit{
+    color: #fff;
+}
+
+@media only screen and (max-width : 800px){
+    .containerProdutos{
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* FIM SEÇÃO PRODUTOS */
+
+
+
+
+/* INICIO SEÇÃO QUEM SOMOS */
+.quem-somos{
+    text-align: center;
+}
+
+.quem-somos__titulo{
+    color: #FAB916;
+    font-weight: bold;
+    font-size: 2.5rem;
+    font-family: 'Acme', sans-serif;
+    margin-top: 15%;
+}
+
+.quem-somos__descricao{
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+
+/* Seção pessoas */
+.pessoa{
+    display: flex;
+    flex-direction: column;
+}
+
+.pessoas{
+    display: flex;
+    padding-top: 3rem;
+    justify-content: space-around;
+}
+
+.pessoa__imagem{
+    height: 200px;
+    margin: 0 auto;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+
+.icones_perfil{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.icones_perfil a{
+    color: #fff;
+}
+
+.pessoa__imagem--usuario{
+    background-image: url('../img/vandrei.png');
+}
+
+.pessoa__imagem--usuario2{
+    background-image: url('../img/luiz.png');
+}
+
+.pessoa__imagem--usuario3{
+    background-image: url('../img/dener.jpg');
+}
+
+.pessoa__imagem--usuario4{
+    background-image: url('../img/eiji.png');
+}
+
+.pessoa__imagem--usuario5{
+    background-image: url('../img/gabriel.jpg');
+}
+
+.pessoa__imagem--usuario6{
+    background-image: url('../img/leo.jpg');
+}
+
+
+.pessoa__nome{
+    margin: 1rem 0;
+    font-family: 'Acme', sans-serif;
+    color: #FAB916;
+    font-size: 1.5rem;
+}
+
+.pessoa__funcao{
+    color: #fff;
+    font-size: 1rem;
+}
+
+@media only screen and (max-width : 800px){
+    .pessoas{
+        flex-direction: column;
+    }
+}
+
+/* FOOTER */
+.footer-edit{
+    background-color: #FAA505;
+    margin-top: 40px;
+}
+
+.fonte-titulo{
+    color: #000;
+}
+
+.text-reset{
+    color: none !important;
+}
+
+.texto-footer{
+    color: #000 !important;
+    text-decoration: none;
+    transition: 1.0s;
+}
+
+.texto-footer:hover{
+    color: #000000 !important;
+}
+
+.icone_instagram{
+    color: #000;
+}
+/* fim footer */
